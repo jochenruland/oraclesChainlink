@@ -1,0 +1,24 @@
+{
+  "name": "oracleschainlink",
+  "version": "1.0.0",
+  "description": "experimenting with Chainlink oracles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jochenruland/oraclesChainlink.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jochenruland/oraclesChainlink/issues"
+  },
+  "homepage": "https://github.com/jochenruland/oraclesChainlink#readme",
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.0",
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "web3": "^1.7.0"
+  }
+}
