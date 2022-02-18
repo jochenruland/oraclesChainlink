@@ -23,7 +23,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-const projectId = ab49b8e0ca2345558f49489dd6ed71f1;
+const projectId = 'ab49b8e0ca2345558f49489dd6ed71f1';
 
 module.exports = {
   /**
@@ -59,14 +59,16 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-     kovan: {
-     provider: () => new HDWalletProvider(mnemonic, `https://kovan.infura.io/v3/${projectId}`),
-     network_id: 3,       // Ropsten's id
-     gas: 5500000,        // Ropsten has a lower block limit than mainnet
-     confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-     timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-     skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-     },
+    kovan: {
+      provider: () => new HDWalletProvider(mnemonic, `wss://kovan.infura.io/ws/v3/${projectId}`),
+      network_id: 42,       // Ropsten's id
+      gas: 5500000,        // Ropsten has a lower block limit than mainnet
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 50000,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: false,     // Skip dry run before migrations? (default: false for public nets )
+      websocket: true,
+      networkCheckTimeout: 1000000
+    },
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
@@ -77,7 +79,7 @@ module.exports = {
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
-    // timeout: 100000
+    timeout: 100000
   },
 
   // Configure your compilers
