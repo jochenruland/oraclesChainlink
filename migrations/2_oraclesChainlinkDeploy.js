@@ -1,4 +1,4 @@
-const oraclesChainlink = artifacts.require("oraclesChainlink");
+const oraclesChainlink = artifacts.require("OraclesChainlink");
 
 module.exports = function (deployer) {
   deployer.deploy(oraclesChainlink);
