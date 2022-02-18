@@ -3,7 +3,7 @@ pragma solidity ^0.8.10;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
-contract PriceConsumerV3 {
+contract OraclesChainlink {
 
     AggregatorV3Interface internal priceFeed;
 
@@ -28,5 +28,12 @@ contract PriceConsumerV3 {
             uint80 answeredInRound
         ) = priceFeed.latestRoundData();
         return price;
+    }
+
+
+    function metaData() public view returns(uint8, string memory) {
+        uint8 dec = priceFeed.decimals();
+        string memory des = priceFeed.description();
+        return (dec, des);
     }
 }
